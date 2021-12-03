@@ -1,0 +1,2 @@
+frontend: npm run dev
+django: python manage.py runserver_plus

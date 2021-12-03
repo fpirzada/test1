@@ -1,0 +1,20 @@
+{
+  "name": "casinorange",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "honcho -f Procfile.dev start",
+    "test": "pytest",
+    "coverage": "pytest --cov"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "petite-vue": "^0.3.0"
+  }
+}

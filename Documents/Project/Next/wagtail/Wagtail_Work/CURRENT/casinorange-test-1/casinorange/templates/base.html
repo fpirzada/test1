@@ -1,0 +1,68 @@
+{% load static wagtailcore_tags wagtailuserbar compress %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>
+    {% block title %}
+      {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+    {% endblock %}
+    {% block title_suffix %}
+      {% wagtail_site as current_site %}
+      {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+    {% endblock %}
+  </title>
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  {# Global javascript and stylesheets #}
+  {% if debug %}
+    <script type="module" src="http://localhost:3000/@vite/client"></script>
+    <script type="module" src="http://localhost:3000/static_src/main.js"></script>
+  {% else %}
+    <script type="module" src="{% static "assets/main.js" %}"></script>
+    {% compress css %}
+      <link rel="stylesheet" href="{% static "assets/main.css" %}" type="text/css"/>
+    {% endcompress %}
+  {% endif %}
+
+  {% block extra_css %}
+    {# Override this in templates to add extra stylesheets #}
+  {% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %} bg-gray-200">
+{% wagtailuserbar %}
+
+<header class="relative bg-blue-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex justify-between items-center py-6 md:justify-start md:space-x-8">
+      <div class="flex justify-start lg:w-0 lg:flex-1">
+        <a href="/" class="text-white text-bold">
+          CasinoRange
+        </a>
+      </div>
+      <div class="ml-auto">
+
+      </div>
+    </div>
+  </div>
+</header>
+
+{% block content_area %}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    {% block content %}{% endblock %}
+  </div>
+{% endblock %}
+
+<footer class="bg-blue-900">
+  <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6">
+    Footer
+  </div>
+</footer>
+
+{% block extra_js %}
+  {# Override this in templates to add extra javascript #}
+{% endblock %}
+</body>
+</html>

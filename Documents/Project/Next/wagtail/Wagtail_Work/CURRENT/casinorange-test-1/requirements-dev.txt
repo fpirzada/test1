@@ -1,0 +1,12 @@
+# Development dependencies
+django-debug-toolbar==3.2.2
+honcho==1.1.0
+pre-commit==2.15.0
+
+# Test dependencies
+pytest==6.2.5
+pytest-cov==3.0.0
+pytest-django==4.4.0
+pytest-selenium==2.0.1
+wagtail-factories==2.0.1
+werkzeug==2.0.2

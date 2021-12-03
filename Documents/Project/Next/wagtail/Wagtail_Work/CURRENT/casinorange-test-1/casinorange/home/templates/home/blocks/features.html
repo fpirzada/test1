@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+
+<h2 class="text-center text-2xl m-5">{{ self.title }}</h2>
+<div class="grid grid-cols-3">
+  {% for block in self.features %}
+    {% include_block block %}
+  {% endfor %}
+</div>

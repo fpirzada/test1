@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+  <h1 class="text-bold text-xl py-4">{{ self.title }}</h1>
+
+  {% include "core/partials/_render_body.html" with body=page.body %}
+{% endblock %}

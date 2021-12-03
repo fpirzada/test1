@@ -1,0 +1,7 @@
+{% load wagtailcore_tags %}
+
+<div class="grid grid-cols-12 gap-4">
+  {% for column in self.content %}
+    {% include_block column %}
+  {% endfor %}
+</div>

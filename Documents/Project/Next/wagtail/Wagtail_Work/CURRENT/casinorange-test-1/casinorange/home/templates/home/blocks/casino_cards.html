@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+
+<h2 class="text-center text-2xl mb-5">{{ self.title }}</h2>
+<div class="grid grid-cols-6">
+  {% for block in self.casino_cards %}
+    {% include_block block %}
+  {% endfor %}
+</div>
